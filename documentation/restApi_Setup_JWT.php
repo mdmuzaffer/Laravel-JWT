@@ -93,7 +93,7 @@ Inside the config/auth.php file you will need to make a few changes to configure
 ],
 
 
-IF YOU WANT TO ADD DEFAULT GUARD WEB THEN IN CONTROLLER CONSTRUCTER FOR API CAN SET THE 
+IF YOU WANT TO ADD DEFAULT GUARD WEB THEN IN CONTROLLER CONSTRUCTER FOR API CAN SET THEN IT WILL WORK BOTH SITE AND API ROUTE.
 -------------------------- 
 public function __construct()
     {
@@ -226,6 +226,7 @@ Also add the middleware in construct  controller AuthController
  public function __construct()
     {
         $this->middleware('jwt.verify', ['except' => ['login','register']]);
+        auth()->setDefaultDriver('api'); //IF YOU ADDED DEFAULT GUARD WEB
     }
 
 Note Don't need to add in rote any things else of middleware
