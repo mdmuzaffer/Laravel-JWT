@@ -92,6 +92,17 @@ Inside the config/auth.php file you will need to make a few changes to configure
     'passwords' => 'users',
 ],
 
+
+IF YOU WANT TO ADD DEFAULT GUARD WEB THEN IN CONTROLLER CONSTRUCTER FOR API CAN SET THE 
+-------------------------- 
+public function __construct()
+    {
+
+        $this->middleware('jwt.verify', ['except' => ['login','register']]);
+        auth()->setDefaultDriver('api');
+    }
+-----------------
+
 ...
 
 'guards' => [
